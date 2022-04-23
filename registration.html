@@ -2,104 +2,373 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Form-v2 by Colorlib</title>
+    <title>VotSys</title>
     <!-- Mobile Specific Metas -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="96x96"
+      href="assets/images/VotSys_blue.png"
     />
-    <!-- Font-->
+    <link rel="icon" type="image/png" href="assets/images/VotSys_blue.png" />
+    <!--    font-awesome-->
+    <link
+      href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
-      type="text/css"
-      href="registration/css/roboto-font.css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
     />
+
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
     <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,600;1,800&display=swap"
       rel="stylesheet"
-      type="text/css"
-      href="registration/fonts/line-awesome/css/line-awesome.min.css"
     />
-    <!-- Jquery -->
-    <link
-      rel="stylesheet"
-      href="https://jqueryvalidation.org/files/demo/site-demos.css"
-    />
-    <!-- Main Style Css -->
-    <link rel="stylesheet" href="registration/css/style.css" />
   </head>
   <body class="form-v2">
-    <div class="page-content">
-      <div class="form-v2-content">
-        <div class="form-left">
-          <img src="registration/images/form-v2.jpg" alt="form" />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="login-bg text-white">
+            <div class="pt-lg-5">
+              <p class=""></p>
+            </div>
+          </div>
         </div>
-        <form class="form-detail" action="#" method="post" id="myform">
-          <h2>Registration Form</h2>
-          <div class="form-row">
-            <label for="full-name">Full Name:</label>
-            <input
-              type="text"
-              name="full_name"
-              id="full_name"
-              class="input-text"
-              placeholder="ex: Lindsey Wilson"
-            />
-          </div>
-          <div class="form-row">
-            <label for="your_email">Your Email:</label>
-            <input
-              type="text"
-              name="your_email"
-              id="your_email"
-              class="input-text"
-              required
-              pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
-            />
-          </div>
-          <div class="form-row">
-            <label for="password">Password:</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              class="input-text"
-              required
-            />
-          </div>
-          <div class="form-row">
-            <label for="comfirm-password">Confirm Password:</label>
-            <input
-              type="password"
-              name="confirm_password"
-              id="confirm_password"
-              class="input-text"
-              required
-            />
-          </div>
-          <div class="form-checkbox">
-            <label class="container"
-              ><p>
-                By signing up, you agree to the
-                <a href="#" class="text">Play Term of Service</a>
-              </p>
-              <input type="checkbox" name="agree" id="agree" />
-              <span class="checkmark"></span>
-            </label>
-          </div>
-          <div class="form-row-last">
-            <input
-              type="submit"
-              name="register"
-              class="register"
-              value="Register"
-            />
-          </div>
-        </form>
+        <div class="col-md-8">
+          <form class="form-detail" action="#" method="post" id="myform">
+            <div class="registration-form p-5">
+            <h1>Aspirant Registration Form</h1>
+            <h3>Personal</h3>
+            <div class="mb-4 row pr-5">
+              <div class="col-lg-6">
+                <label for="fnamex" class="form-label">First Name:</label>
+                <input
+                  type="text"
+                  name="first_name"
+                  id="fnamex"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-lg-6">
+                <label for="lnamex" class="form-label">Last Name:</label>
+                <input
+                  type="text"
+                  name="last_name"
+                  id="lnamex"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="mb-4 row pr-5">
+              <div class="col-lg-6">
+                <label for="onamex" class="form-label">Other Name:</label>
+                <input
+                  type="text"
+                  name="other_name"
+                  id="onamex"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="mb-4 row pr-5">
+              <div class="col-lg-6">
+                <label for="emailx" class="form-label">Email:</label>
+                <input
+                  type="text"
+                  name="email"
+                  id="emailx"
+                  class="form-control"
+                  required
+                  pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
+                />
+              </div>
+              <div class="col-lg-6">
+                <label for="street" class="form-label">Date Of Birth:</label>
+                <input
+                  type="date"
+                  name="DateOfBirth"
+                  id="DoB"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="mb-4 row pr-5">
+              <div class="col-lg-6">
+                <label for="street" class="form-label"
+                  >Residential Street:</label
+                >
+                <input
+                  type="text"
+                  name="residential-street"
+                  id="street"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-lg-6">
+                <label for="city" class="form-label">Residential city:</label>
+                <input
+                  type="text"
+                  name="residential-city"
+                  id="city"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="mb-4 row pr-5">
+              <div class="col-lg-6">
+                <label for="countryx" class="form-label"
+                  >Residential Country:</label
+                >
+                <select
+                  class="form-control"
+                  style="width: 92%"
+                  name="country"
+                  id="countryx"
+                  disabled
+                >
+                  <option value="Nigeria">Nigeria</option>
+                </select>
+              </div>
+              <div class="col-lg-6">
+                <label for="nstates" class="form-label"
+                  >Residential State:</label
+                >
+                <select
+                  class="form-control"
+                  style="width: 92%"
+                  name="states"
+                  id="nstates"
+                >
+                  <option value="" selected>-Select State-</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-4 row pr-5">
+              <div class="col-lg-6">
+                <label for="pnox" class="form-label">Phone Number:</label>
+                <input
+                  type="text"
+                  name="phone_number"
+                  id="pnox"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-lg-6">
+                <label for="pnox" class="form-label">Gender:</label>
+                <select
+                  class="form-control"
+                  style="width: 92%"
+                  name="gender"
+                  id="genderx"
+                >
+                  <option selected>--Select Gender--</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Famale</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-4 row pr-5">
+              <div class="col-lg-6">
+                <label for="pvcx" class="form-label">PVC:</label>
+                <input type="text" name="pvc" id="pvcx" class="form-control" />
+              </div>
+              <div class="col-lg-6">
+                <label for="ninx" class="form-label">NIN:</label>
+                <input type="text" name="nin" id="ninx" class="form-control" />
+              </div>
+            </div>
+            <h3>Next Of Kin</h3>
+            <div class="mb-4 row pr-5">
+              <div class="col-lg-6">
+                <label for="nkfnamex" class="form-label">First Name:</label>
+                <input
+                  type="text"
+                  name="first_name"
+                  id="nkfnamex"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-lg-6">
+                <label for="nklnamex" class="form-label">Last Name:</label>
+                <input
+                  type="text"
+                  name="last_name"
+                  id="nklnamex"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="mb-4 row pr-5">
+              <div class="col-lg-6">
+                <label for="nkonamex" class="form-label">Other Name:</label>
+                <input
+                  type="text"
+                  name="other_name"
+                  id="nkonamex"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="mb-4 row pr-5">
+              <div class="col-lg-6">
+                <label for="nkemailx" class="form-label">Email:</label>
+                <input
+                  type="text"
+                  name="email"
+                  id="nkemailx"
+                  class="form-control"
+                  required
+                  pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
+                />
+              </div>
+            </div>
+            <div class="mb-4 row pr-5">
+              <div class="col-lg-6">
+                <label for="nkstreet" class="form-label"
+                  >Residential Street:</label
+                >
+                <input
+                  type="text"
+                  name="residential-street"
+                  id="nkstreet"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-lg-6">
+                <label for="nkcity" class="form-label">Residential city:</label>
+                <input
+                  type="text"
+                  name="residential-city"
+                  id="nkcity"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="mb-4 row pr-5">
+              <div class="col-lg-6">
+                <label for="nkcountryx" class="form-label"
+                  >Residential Country:</label
+                >
+                <select
+                  class="form-control"
+                  style="width: 92%"
+                  name="country"
+                  id="nkcountryx"
+                  disabled
+                >
+                  <option value="Nigeria">Nigeria</option>
+                </select>
+              </div>
+              <div class="col-lg-6">
+                <label for="nkstates" class="form-label"
+                  >Residential State:</label
+                >
+                <select
+                  class="form-control"
+                  style="width: 92%"
+                  name="states"
+                  id="nkstates"
+                >
+                  <option value="" selected>-Select State-</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-4 row pr-5">
+              <div class="col-lg-6">
+                <label for="nkpnox" class="form-label">Phone Number:</label>
+                <input
+                  type="text"
+                  name="phone_number"
+                  id="nkpnox"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-lg-6">
+                <label for="nkrelationship" class="form-label"
+                  >Relationship:</label
+                >
+                <input
+                  type="text"
+                  name="pvc"
+                  id="nkrelationship"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <h3>Password</h3>
+            <div class="mb-4 row pr-5">
+              <div class="col-lg-6">
+                <label for="passwordx" class="form-label">Password:</label>
+                <input
+                  type="password"
+                  name="password"
+                  id="passwordx"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="col-lg-6">
+                <label for="conPasswordx" class="form-label"
+                  >Confirm Password:</label
+                >
+                <input
+                  type="password"
+                  name="confirm_password"
+                  id="conPasswordx"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+            <div class="mb-5">
+              <span
+                type="button"
+                class="btn-lg btn-pry"
+                onclick="validate(event);"
+                >Create Account</span
+              >
+              <a href="#" class="pl-5 pt-2 forgot-password float-end"
+                >Forgot Password?</a
+              >
+            </div>
+          </form>
+        </div></div></div>
       </div>
     </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script src="states.js"></script>
+
     <script>
       // just for the demos, avoids form submit
       jQuery.validator.setDefaults({
@@ -116,21 +385,156 @@
           },
         },
         messages: {
-          full_name: {
+          fname: {
             required: "Please provide an username",
           },
-          your_email: {
+          lname: {
+            required: "Please provide an username",
+          },
+          oname: {
+            required: "Please provide an username",
+          },
+          emailx: {
             required: "Please provide an email",
           },
-          password: {
+          passwordx: {
             required: "Please provide a password",
           },
-          confirm_password: {
+          conPasswordx: {
             required: "Please provide a password",
             equalTo: "Wrong Password",
           },
         },
       });
+
+      let stateDropdown = document.getElementById("nstates");
+      let nkStateDropdown = document.getElementById("nkstates");
+      var x = 0;
+      while (x < states.length) {
+        let stateOption = document.createElement("option");
+        stateOption.text = states[x].name;
+        stateOption.value = states[x].name;
+        stateDropdown.appendChild(stateOption);
+        x++;
+      }
+      var xx = 0;
+      while (xx < states.length) {
+        let stateOption = document.createElement("option");
+        stateOption.text = states[xx].name;
+        stateOption.value = states[xx].name;
+        nkStateDropdown.appendChild(stateOption);
+        x++;
+      }
+
+      var valluuee = document.getElementById("DoB").value;
+      console.log(valluuee);
+
+      var url = "https://votingsystemservice.herokuapp.com";
+
+      function validate(event) {
+        var bbbbbb = document.getElementById("DoB").value;
+        console.log(bbbbbb);
+        const dayyss = new Date(bbbbbb);
+        console.log(dayyss);
+        let dayx = "";
+        let monthx = "";
+        let yearx = "";
+        if (bbbbbb != null) {
+          dayx = dayyss.getDate();
+          monthx = dayyss.getMonth() + 1;
+          yearx = dayyss.getFullYear();
+        }
+        console.log(dayx);
+        console.log(monthx);
+        console.log(yearx);
+        //Calling the API -
+        $.ajax({
+          type: "POST",
+          beforeSend: function (request) {
+            request.setRequestHeader(
+              "Access-Control-Allow-Headers",
+              "X-Requested-With, content-type"
+            );
+          },
+          url: url + "/nextofkin/add",
+          contentType: "application/json",
+          dataType: "json",
+          data: JSON.stringify({
+            fname: document.getElementById("nkfnamex").value,
+            lname: document.getElementById("nklnamex").value,
+            oname: document.getElementById("nkonamex").value,
+            email: document.getElementById("nkemailx").value,
+            residentialStreet: document.getElementById("nkstreet").value,
+            residentialCity: document.getElementById("nkcity").value,
+            residentialCountry: document.getElementById("nkcountryx").value,
+            residentialState: document.getElementById("nkstates").value,
+            pno: document.getElementById("nkpnox").value,
+            relationship: document.getElementById("nkrelationship").value,
+          }),
+          success: function (result) {
+            $.ajax({
+              type: "POST",
+              beforeSend: function (request) {
+                request.setRequestHeader(
+                  "Access-Control-Allow-Headers",
+                  "X-Requested-With, content-type"
+                );
+              },
+              url: url + "/aspirants/add",
+              contentType: "application/json",
+              dataType: "json",
+              data: JSON.stringify({
+                fname: document.getElementById("fnamex").value,
+                lname: document.getElementById("lnamex").value,
+                oname: document.getElementById("onamex").value,
+                email: document.getElementById("emailx").value,
+                dayOfBirth: dayx,
+                monthOfBirth: monthx,
+                yearOfBirth: yearx,
+                residentialStreet: document.getElementById("street").value,
+                residentialCity: document.getElementById("city").value,
+                residentialCountry: document.getElementById("countryx").value,
+                residentialState: document.getElementById("nstates").value,
+                pno: document.getElementById("pnox").value,
+                sex: document.getElementById("genderx").value,
+                pvc: document.getElementById("pvcx").value,
+                nin: document.getElementById("ninx").value,
+                positionID: "string",
+                nextOfKinID: "string",
+                password: document.getElementById("passwordx").value,
+              }),
+              success: function (result) {
+                //console.log("Here "+result);
+                sessionStorage.setItem("user", JSON.stringify(result["user"]));
+                sessionStorage.setItem("lg", 1);
+                sessionStorage.setItem("url", url);
+                location.href = "user-management.html";
+              },
+              error: function (result) {
+                var json = $.parseJSON(result.responseText);
+                swal({
+                  title: json.status,
+                  text: json.message,
+                  icon: "error",
+                });
+              },
+            });
+            //console.log("Here "+result);
+            sessionStorage.setItem("user", JSON.stringify(result["user"]));
+            sessionStorage.setItem("lg", 1);
+            sessionStorage.setItem("url", url);
+            location.href = "user-management.html";
+          },
+          error: function (result) {
+            var json = $.parseJSON(result.responseText);
+            swal({
+              title: json.status,
+              text: json.message,
+              icon: "error",
+            });
+          },
+        });
+      }
     </script>
   </body>
   <!-- This templates was made by Colorlib (https://colorlib.com) -->
