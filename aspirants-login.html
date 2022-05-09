@@ -51,7 +51,7 @@
         </div>
         <div class="col-md-8">
           <div class="login-form p-5">
-            <h1>Voters Login</h1>
+            <h1>Aspirants Login</h1>
             <form class="pt-5">
                 <div class="mb-5">
                     <label for="usernamex" class="form-label" style="font-size: 16px;font-weight: 500">NIN OR PVC</label>
@@ -129,7 +129,7 @@
               "X-Requested-With, content-type"
             );
           },
-          url: url + "/voters/doLogin",
+          url: url + "/aspirants/doLogin",
           contentType: "application/json",
           dataType: "json",
           data: JSON.stringify({
@@ -147,7 +147,7 @@
               text: result["message"],
               icon: "success",
             }).then(() => {
-              location.href = "voters-dashboard.html";
+              location.href = "aspirants-dashboard.html";
             });
           },
           error: function (result) {

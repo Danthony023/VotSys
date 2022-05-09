@@ -36,7 +36,7 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,600;1,800&display=swap"
       rel="stylesheet"
     />
-    <title>Position</title>
+    <title>User Management</title>
   </head>
   <body style="background: #e8edf5; width: 100%; height: 100%">
     <div class="wrapper">
@@ -52,7 +52,7 @@
             <!--                    <span class="icon"><i class="fas fa-home"></i></span>-->
             <!--                    <span>Home</span>-->
             <!--                </a>-->
-            Position
+            Time Configuration
           </div>
           <div class="right_info">
             <!--                <div class="icon_wrap">-->
@@ -149,31 +149,9 @@
         <div class="sub-container">
           <div class="card">
             <div class="card-body">
-              <span class="form-title"> Add Position</span>
+              <span class="form-title"> Add Time Configuration</span>
               <div class="row mt-3">
                 <div id="tCandidate" class="col-lg-12">
-                  <div class="row mt-2">
-                    <div class="col-lg-3">
-                      <label class="form-label">Name</label>
-                      <input
-                        type="text"
-                        id="pname"
-                        class="form-control"
-                        placeholder="Name"
-                        style="font-size: 14px"
-                      />
-                    </div>
-                    <div class="col-lg-3">
-                      <label class="form-label">Description</label>
-                      <input
-                        type="text"
-                        id="pdescription"
-                        class="form-control"
-                        placeholder="Description"
-                        style="font-size: 14px"
-                      />
-                    </div>
-                  </div>
                   <div class="row mt-2">
                     <div class="col-lg-3">
                       <label for="typex" class="form-label">Type:</label>
@@ -184,16 +162,36 @@
                         id="typex"
                       >
                         <option selected>--Select Type--</option>
-                        <option value="0">NATIONAL BASED</option>
-                        <option value="1">STATE BASED</option>
+                        <option value="0">REGISTRATION</option>
+                        <option value="1">VOTING</option>
                       </select>
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-lg-3">
+                      <label for="SDate" class="form-label">Start Date:</label>
+                      <input
+                        type="datetime-local"
+                        name="StartDate"
+                        id="SDate"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="col-lg-3">
+                      <label for="EDate" class="form-label">End Date:</label>
+                      <input
+                        type="datetime-local"
+                        name="EndDate"
+                        id="EDate"
+                        class="form-control"
+                      />
                     </div>
                   </div>
                   <div class="col-lg-8 mt-3 float-end">
                     <span
                       type="button"
                       class="btn-sm btn-pry float-end"
-                      onclick="addPosition();"
+                      onclick="addTimeConfig();"
                       >Confirm</span
                     >
                   </div>
@@ -212,68 +210,6 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--Edit Modal-->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"></h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="form-group row">
-              <div class="col-xs-6">
-                <label>Name<font color="red">*</font></label>
-                <input
-                  class="form-control"
-                  placeholder="Name"
-                  id="epname"
-                  type="text"
-                  pattern="[A-Za-z-]+"
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-xs-6">
-                <label>Description<font color="red">*</font></label>
-                <input
-                  class="form-control"
-                  placeholder="Description"
-                  id="epdescrip"
-                  type="text"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary" onclick="editLead();">
-              Save
-            </button>
           </div>
         </div>
       </div>
@@ -328,15 +264,15 @@
         },
       });
       function activeChange(code) {
-        sessionStorage.setItem("activeCode", 2);
+        sessionStorage.setItem("activeCode", 4);
         sessionStorage.setItem("activeCode", code);
       }
 
       (function () {
         var code = sessionStorage.getItem("activeCode");
         console.log(code);
-        if (code == 2) {
-          document.getElementById("active2").className = "active";
+        if (code == 4) {
+          document.getElementById("active4").className = "active";
         }
       })();
 
@@ -363,7 +299,7 @@
             );
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
           },
-          url: url + "/position/gets",
+          url: url + "/timeconfiguration/gets",
           contentType: "application/json",
           dataType: "json",
           success: function (result) {
@@ -396,43 +332,98 @@
         }
       }
 
-      function addPosition() {
-        var payMethod = "";
-        //Calling the API -
-        $.ajax({
-          type: "POST",
-          beforeSend: function (request) {
-            request.setRequestHeader(
-              "Access-Control-Allow-Headers",
-              "X-Requested-With, content-type"
-            );
-          },
-          url: url + "/position/add",
-          contentType: "application/json",
-          dataType: "json",
-          data: JSON.stringify({
-            name: document.getElementById("pname").value,
-            descrip: document.getElementById("pdescription").value,
-            type: document.getElementById("typex").value,
-          }),
-          success: function (result) {
-            swal({
-              title: result["status"],
-              text: result["message"],
-              icon: "success",
-            }).then(() => {
-              location.reload();
-            });
-          },
-          error: function (result) {
-            var json = $.parseJSON(result.responseText);
-            swal({
-              title: json.status,
-              text: json.message,
-              icon: "error",
-            });
-          },
-        });
+      // Method to change date from timestamp
+      const changeDate = (timestamp) => {
+        const date = new Date(timestamp);
+        const retDate = date.toDateString();
+        let hour = "0";
+        let minutes = "0";
+        let seconds = "0";
+
+        if (date.getHours() < 10) {
+          hour += date.getHours();
+        } else {
+          hour = date.getHours();
+        }
+
+        if (date.getMinutes() < 10) {
+          minutes += date.getMinutes();
+        } else {
+          minutes = date.getMinutes();
+        }
+
+        if (date.getSeconds() < 10) {
+          seconds += date.getSeconds();
+        } else {
+          seconds = date.getSeconds();
+        }
+        return retDate + " " + hour + ":" + minutes + ":" + seconds;
+      };
+
+      const changeToTimestamp = (date) => {
+        const timeDate = new Date(date);
+        const retDate = timeDate.getTime();
+        return retDate;
+      };
+
+      const changeType = (type) => {
+        if (type == 1) {
+          return "VOTING";
+        } else if (type == 0) {
+          return "REGISTRATION";
+        }
+      };
+
+      function addTimeConfig() {
+        var uSDate = document.getElementById("SDate").value;
+        var uEDate = document.getElementById("EDate").value;
+        var tSDate = changeToTimestamp(uSDate);
+        var tEDate = changeToTimestamp(uEDate);
+        if (tSDate > tEDate) {
+          swal({
+            title: "Invalid Date",
+            text: "Please Input An End Date That is After The Start Date",
+            icon: "error",
+          }).then(() => {
+            location.reload();
+          });
+        } else {
+          //Calling the API -
+          $.ajax({
+            type: "POST",
+            beforeSend: function (request) {
+              request.setRequestHeader(
+                "Access-Control-Allow-Headers",
+                "X-Requested-With, content-type"
+              );
+            },
+            url: url + "/timeconfiguration/save",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify({
+              type: document.getElementById("typex").value,
+              startTime: tSDate,
+              endTime: tEDate,
+            }),
+            success: function (result) {
+              swal({
+                title: result["status"],
+                text: result["message"],
+                icon: "success",
+              }).then(() => {
+                location.reload();
+              });
+            },
+            error: function (result) {
+              var json = $.parseJSON(result.responseText);
+              swal({
+                title: json.status,
+                text: json.message,
+                icon: "error",
+              });
+            },
+          });
+        }
       }
 
       //Function to search table
@@ -482,7 +473,7 @@
         listing_table.innerHTML = "";
 
         listing_table.innerHTML +=
-          "<tbody><tr><td><b>Name</b></td><td><b>Description</b></td><td><b>Actions</b></td></tr>";
+          "<tbody><tr><td><b>Type</b></td><td><b>Start Date</b></td><td><b>End Date</b></td></tr>";
         var total = page * records_per_page;
         if (jsonData.length < page * records_per_page) {
           total = jsonData.length;
@@ -499,16 +490,12 @@
 
           oneRecord =
             "<tr><td>" +
-            jsonData[i].name +
+            changeType(jsonData[i].type) +
             "</td><td>" +
-            jsonData[i].descrip +
-            "</td>" +
-            '<td class="options-ham-menu"> <div class="actions dropdown"> \
-                                <span class="actions  dropdown-toggle" href="#"  id="action-dropDown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="kclick(\'' +
-            i +
-            '\');">...</span> \
-                                <div class="action dropdown-menu" aria-labelledby="action-dropDown2"><a class="dropdown-item"  data-toggle="modal" data-target="#exampleModal" style="cursor: pointer">Edit </a> \
-                                </div></div></td></tr>';
+            changeDate(jsonData[i].startTime) +
+            "</td><td>" +
+            changeDate(jsonData[i].endTime) +
+            "</td></tr>";
 
           listing_table.innerHTML += oneRecord;
         }
@@ -530,56 +517,6 @@
 
       function numPages() {
         return Math.ceil(jsonData.length / records_per_page);
-      }
-
-      //Function to handle the transition of selected lead
-      function kclick(x) {
-        //console.log("My "+jsonData[x]);
-        var alead = jsonData[x];
-        selectedLead = jsonData[x];
-
-        document.getElementById("exampleModalLabel").innerHTML = alead.name;
-        document.getElementById("epname").value = alead.name;
-        document.getElementById("epdescrip").value = alead.descrip;
-      }
-
-      //Lead Update
-      function editLead() {
-        //Calling the API -
-        $.ajax({
-          type: "POST",
-          beforeSend: function (request) {
-            request.setRequestHeader(
-              "Access-Control-Allow-Headers",
-              "X-Requested-With, content-type"
-            );
-          },
-          url: url + "/position/update",
-          contentType: "application/json",
-          dataType: "json",
-          data: JSON.stringify({
-            name: document.getElementById("epname").value,
-            descrip: document.getElementById("epdescrip").value,
-            id: selectedLead.id,
-          }),
-          success: function (result) {
-            swal({
-              title: result["status"],
-              text: result["message"],
-              icon: "success",
-            }).then(() => {
-              location.reload();
-            });
-          },
-          error: function (result) {
-            var json = $.parseJSON(result.responseText);
-            swal({
-              title: json.status,
-              text: json.message,
-              icon: "error",
-            });
-          },
-        });
       }
     </script>
   </body>

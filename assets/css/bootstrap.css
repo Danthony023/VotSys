@@ -4527,6 +4527,8 @@ fieldset:disabled .btn {
 }
 
 .card-title {
+  color: #23bd49;
+  font-size: 30px;
   margin-bottom: 0.5rem;
 }
 

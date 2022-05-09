@@ -51,7 +51,7 @@
         </div>
         <div class="col-md-8">
           <div class="login-form p-5">
-            <h1>Voters Login</h1>
+            <h1>Aspirants Login</h1>
             <form class="pt-5">
                 <div class="mb-5">
                     <label for="usernamex" class="form-label" style="font-size: 16px;font-weight: 500">NIN OR PVC</label>
@@ -110,7 +110,6 @@
           },
         },
       });
-      var url = "https://votingsystemservice.herokuapp.com";
 
       function pressKey(e){
             if (e.keyCode == 13) {
@@ -119,46 +118,18 @@
         }
 
       function validate(event) {
-       
-        //Calling the API -
-        $.ajax({
-          type: "POST",
-          beforeSend: function (request) {
-            request.setRequestHeader(
-              "Access-Control-Allow-Headers",
-              "X-Requested-With, content-type"
-            );
-          },
-          url: url + "/voters/doLogin",
-          contentType: "application/json",
-          dataType: "json",
-          data: JSON.stringify({
-                username : document.getElementById("usernamex").value,
-                password : document.getElementById("passwordx").value
-            }),
-          success: function (result) {
-           //console.log("Here "+result);
-           sessionStorage.setItem("user", JSON.stringify(result["user"]));
-                sessionStorage.setItem("lg", 1);
-                sessionStorage.setItem("url", url);
-                console.log( sessionStorage.getItem("user"));
-                swal({
-              title: result["status"],
-              text: result["message"],
-              icon: "success",
-            }).then(() => {
-              location.href = "voters-dashboard.html";
-            });
-          },
-          error: function (result) {
-            var json = $.parseJSON(result.responseText);
-            swal({
-              title: json.status,
-              text: json.message,
+      var usernamex = document.getElementById("usernamex").value;
+        var passwordx = document.getElementById("passwordx").value;
+       if ( usernamex == "Admin123" && passwordx == "VotSys123" ) {
+        location.href = "position-settings.html";
+       } else {
+        swal({
+              title: "ERROR",
+              text: "Invalid Credentials",
               icon: "error",
             });
-          },
-        });
+       }
+    
       }
     </script>
   </body>

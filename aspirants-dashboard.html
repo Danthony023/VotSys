@@ -36,7 +36,7 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,600;1,800&display=swap"
       rel="stylesheet"
     />
-    <title>Position</title>
+    <title>Dashboard</title>
   </head>
   <body style="background: #e8edf5; width: 100%; height: 100%">
     <div class="wrapper">
@@ -52,7 +52,7 @@
             <!--                    <span class="icon"><i class="fas fa-home"></i></span>-->
             <!--                    <span>Home</span>-->
             <!--                </a>-->
-            Position
+            Dashboard
           </div>
           <div class="right_info">
             <!--                <div class="icon_wrap">-->
@@ -107,6 +107,17 @@
             <ul>
               <li>
                 <a
+                  id="active1"
+                  href="aspirants-dashboard.html"
+                  class=""
+                  onclick="activeChange(1);"
+                >
+                  <span class="icon"><i class="fas fa-address-book"></i></span>
+                  <span class="list">Dashboard</span>
+                </a>
+              </li>
+              <li>
+                <a
                   id="active2"
                   href="position-settings.html"
                   class=""
@@ -114,17 +125,6 @@
                 >
                   <span class="icon"><i class="fas fa-filter"></i></span>
                   <span class="list">Positions</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  id="active4"
-                  href="timeConfiguration.html"
-                  class=""
-                  onclick="activeChange(4);"
-                >
-                  <span class="icon"><i class="fas fa-filter"></i></span>
-                  <span class="list">Time Configuration</span>
                 </a>
               </li>
               <!--                    <li>-->
@@ -172,21 +172,6 @@
                         placeholder="Description"
                         style="font-size: 14px"
                       />
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-lg-3">
-                      <label for="typex" class="form-label">Type:</label>
-                      <select
-                        class="form-control"
-                        style="width: 92%"
-                        name="type"
-                        id="typex"
-                      >
-                        <option selected>--Select Type--</option>
-                        <option value="0">NATIONAL BASED</option>
-                        <option value="1">STATE BASED</option>
-                      </select>
                     </div>
                   </div>
                   <div class="col-lg-8 mt-3 float-end">
@@ -328,15 +313,14 @@
         },
       });
       function activeChange(code) {
-        sessionStorage.setItem("activeCode", 2);
         sessionStorage.setItem("activeCode", code);
       }
 
       (function () {
         var code = sessionStorage.getItem("activeCode");
         console.log(code);
-        if (code == 2) {
-          document.getElementById("active2").className = "active";
+        if (code == 1) {
+          document.getElementById("active1").className = "active";
         }
       })();
 
@@ -413,7 +397,6 @@
           data: JSON.stringify({
             name: document.getElementById("pname").value,
             descrip: document.getElementById("pdescription").value,
-            type: document.getElementById("typex").value,
           }),
           success: function (result) {
             swal({
