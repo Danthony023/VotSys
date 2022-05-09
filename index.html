@@ -61,10 +61,21 @@
                     <label for="passwordx" class="form-label" style="font-size: 16px;font-weight: 500">Password</label>
                     <input type="password" class="form-control" id="passwordx" placeholder="password" onkeyup="pressKey(event);"  style="width: 70%">
                 </div>
-                <div class="mb-5">
+                <div class="mb-4 row pr-5">
+                  <div class="col-lg-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" onclick="togglePassword()" >
+                      <label class="form-check-label" name="showPass" id="showPassword">Show Password</label>
+                    </div>
+              </div>
+            </div>
+                <div class="mb-2">
                     <button type="button" class="btn  pry-btn" onclick="validate(event);">Login</button>
                     <a href="#" class="pl-5 pt-2 forgot-password float-end">Forgot Password?</a>
                 </div>
+                <div class="mb-5">
+                  Don't have an account?...<a href="voters-registration.html" class=" forgot-password" style="text-decoration: underline">Create Account</a>
+               </div>
             </form>
         </div>
         </div></div></div>
@@ -117,6 +128,17 @@
                 validate(event);
             }
         }
+
+        function togglePassword() {
+  var pass1 = document.getElementById("passwordx");
+  if (pass1.type === "password") {
+    document.getElementById("showPassword").innerHTML = "Hide Password";
+    pass1.type = "text";
+  } else {
+    document.getElementById("showPassword").innerHTML = "Show Password";
+    pass1.type = "password";
+  }
+}
 
       function validate(event) {
        

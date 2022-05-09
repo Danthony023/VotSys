@@ -353,10 +353,13 @@
             </div>
             <div class="mb-4 row pr-5">
               <div class="col-lg-6">
-            <input type="checkbox" onclick="togglePassword()">Show Password
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" onclick="togglePassword()" >
+                  <label class="form-check-label" name="showPass" id="showPassword">Show Password</label>
+                </div>
           </div>
         </div>
-            <div class="mb-5">
+            <div class="mb-2">
               <span
                 type="button"
                 class="btn-lg btn-pry"
@@ -364,6 +367,9 @@
                 >Create Account</span
               >
             </div>
+            <div class="mb-5">
+              Already have an account?...<a href="aspirants-login.html" class=" forgot-password" style="text-decoration: underline">Login</a>
+           </div>
           </form>
         </div></div></div>
       </div>
@@ -398,7 +404,7 @@
       $("#myform").validate({
         rules: {
           password: "required",
-          confirm_password: {
+          conPasswordx: {
             equalTo: "#password",
           },
         },
@@ -420,7 +426,6 @@
           },
           conPasswordx: {
             required: "Please provide a password",
-            equalTo: "Wrong Password",
           },
         },
       });
@@ -428,11 +433,13 @@
       function togglePassword() {
   var pass1 = document.getElementById("passwordx");
   var pass2 = document.getElementById("conPasswordx");
-  if (pass1.type === "password") {
+  if (pass1.type === "password" && pass2.type === "password") {
+    document.getElementById("showPassword").innerHTML = "Hide Password";
     pass1.type = "text";
-    pass1.type = "text";
+    pass2.type = "text";
   } else {
-    pass2.type = "password";
+    document.getElementById("showPassword").innerHTML = "Show Password";
+    pass1.type = "password";
     pass2.type = "password";
   }
 }
@@ -572,7 +579,7 @@ console.log(valluuee);
               text: resultlg["message"],
               icon: "success",
             }).then(() => {
-              location.href = "user-management.html";
+              location.href = "aspirants-dashboard.html";
             });
               },
               error: function (resultlg) {
